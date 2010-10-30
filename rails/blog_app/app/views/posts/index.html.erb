@@ -1,0 +1,26 @@
+<%= form_for @search_form, :url => posts_path, :remote => true, :html => {:method => :get} do |f| %>
+  <%= f.search_field :q %>
+  <%= f.submit 'Submit' %>
+<% end %>
+
+<h1>Listing posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody id="posts">
+    <%= render @posts %>
+  </tbody>
+</table>
+
+<br />
+
+<%= link_to 'New Post', new_post_path %>
